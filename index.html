@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        <link rel="stylesheet" href="./resources/custom.css">
+        <style>
+        html, body {
+            background-color: #ffffff;
+        }
+        .ol-control > * {
+            background-color: #f8f8f8!important;
+            color: #444444!important;
+            border-radius: 0px;
+        }
+        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
+            color: #444444!important;
+        }
+        .search-layer-input-search {
+            background-color: #f8f8f8!important;
+        }
+        .ol-control > *:focus, .ol-control >*:hover {
+            background-color: rgba(248, 248, 248, 0.7)!important;
+        } 
+        .ol-control {
+            background-color: rgba(255,255,255,.4) !important;
+            padding: 2px !important;
+        } 
+        </style>
+
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+            <div id="dashboard-panel">
+    <div id="gi321-title">GI 321 Rural Road Inventory</div>
+
+    <div id="dashboard-metrics">
+
+        <div class="metric-card">
+            <div class="metric-label">Total culverts</div>
+            <div id="metric-culverts" class="metric-value">15</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Priority culverts</div>
+            <div id="metric-priority" class="metric-value">12</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Stream outlets</div>
+            <div id="metric-outlets" class="metric-value">42</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">High / Very High inundation zones</div>
+            <div id="metric-inundation" class="metric-value">2</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Gradient segments</div>
+            <div id="metric-gradient" class="metric-value">67</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Road length</div>
+            <div id="metric-road-length" class="metric-value">10.27 km</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Waterway classes</div>
+            <div id="metric-waterways" class="metric-value">2</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Perennial outlets</div>
+            <div id="metric-perennial" class="metric-value">19</div>
+        </div>
+
+    </div>
+
+    <div id="dashboard-controls">
+
+        <label for="condition-filter">Culvert condition:</label>
+
+        <select id="condition-filter">
+            <option value="All">All</option>
+            <option value="Deteriorated">Deteriorated</option>
+            <option value="Barely Functional">Barely Functional</option>
+            <option value="Functional">Functional</option>
+            <option value="Unclassified">Unclassified</option>
+        </select>
+
+        <input
+            id="feature-search"
+            type="text"
+            placeholder="Search CL4 or 6+300"
+        >
+
+        <button id="search-button">Search</button>
+        <button id="reset-button">Reset</button>
+
+    </div>
+
+    <div id="dashboard-status"></div>
+</div>
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+        <script src="resources/olms.js"></script>
+        <script src="layers/GI321_WebReady_StudentIDinundation_zones_1.js"></script><script src="layers/GI321_WebReady_StudentIDstream_outlets_2.js"></script><script src="layers/GI321_WebReady_StudentIDrivers_creeks_3.js"></script><script src="layers/GI321_WebReady_StudentIDculverts_4.js"></script><script src="layers/GI321_WebReady_StudentIDchainage_points_5.js"></script><script src="layers/GI321_WebReady_StudentIDgradient_slope_6.js"></script><script src="layers/GI321_WebReady_StudentIDroad_centerline_7.js"></script>
+        <script src="styles/GI321_WebReady_StudentIDinundation_zones_1_style.js"></script><script src="styles/GI321_WebReady_StudentIDstream_outlets_2_style.js"></script><script src="styles/GI321_WebReady_StudentIDrivers_creeks_3_style.js"></script><script src="styles/GI321_WebReady_StudentIDculverts_4_style.js"></script><script src="styles/GI321_WebReady_StudentIDchainage_points_5_style.js"></script><script src="styles/GI321_WebReady_StudentIDgradient_slope_6_style.js"></script><script src="styles/GI321_WebReady_StudentIDroad_centerline_7_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>        
+    <script src="./resources/custom-dashboard.js"></script>
+    </body>
+</html>
